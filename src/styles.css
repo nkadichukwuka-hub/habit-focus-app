@@ -124,7 +124,7 @@ h2 {
 .grid {
   display: grid;
   /* Habits and Tasks stack beside the timer so the two columns end level; row 2 absorbs the spare height. */
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 360px minmax(0, 1fr);
   grid-template-rows: auto 1fr auto auto auto;
   grid-template-areas:
     'timer habits'
@@ -156,6 +156,7 @@ h2 {
 }
 
 .card {
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -191,7 +192,8 @@ h2 {
 }
 
 .tab {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 7px 10px;
   border: 0;
   border-radius: 999px;
@@ -671,7 +673,7 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
   }
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: none;
     grid-template-areas:
       'timer'
@@ -686,6 +688,10 @@ h2 {
 @media (max-width: 480px) {
   .card {
     padding: 18px;
+  }
+  .tab {
+    padding: 7px 4px;
+    font-size: 0.78rem;
   }
   .habit {
     grid-template-columns: auto 1fr auto;
